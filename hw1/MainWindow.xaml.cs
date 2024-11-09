@@ -86,6 +86,7 @@ namespace hw1
         Length = e.GetPacket().PacketLength,
         Data = e.GetPacket().Data,
       };
+
       try
       {
         Packet packet = Packet.ParsePacket(e.GetPacket().LinkLayerType, e.GetPacket().Data);
@@ -120,7 +121,6 @@ namespace hw1
               packetInfo.TransportProtocol = "UDP";
               packetInfo.SrcPort = udpPacket.SourcePort;
               packetInfo.DstPort = udpPacket.DestinationPort;
-
             }
             else if (ipPacket.PayloadPacket is IcmpV4Packet)
             {
